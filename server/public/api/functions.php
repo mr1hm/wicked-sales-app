@@ -10,4 +10,8 @@ function error_handler($error) {
   print($json_output);
 }
 
+function startUp() {
+  header('Content-type:application/json');
+}
+
 ?>
