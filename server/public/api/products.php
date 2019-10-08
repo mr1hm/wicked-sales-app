@@ -7,7 +7,9 @@ set_exception_handler('error_handler');
 
 startUp();
 
-if (empty($_GET['id']))
+if (empty($_GET['id'])) {
+  $whereClause
+}
 
 $query = "SELECT * FROM `products`";
 $result = mysqli_query($conn, $query);
