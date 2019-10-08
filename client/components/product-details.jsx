@@ -27,7 +27,7 @@ class ProductDetails extends React.Component {
         <article className="row single-post mt-5 no-gutters">
           <div className="col-6 offset-3">
             <div className="row offset-1">
-              <button className="btn btn-warning" onClick={() => this.props.setView('catalog')}>Back to Catalog</button>
+              <button className="btn btn-warning" onClick={() => this.props.setView('catalog', {})}>Back to Catalog</button>
             </div>
             <div className="image-wrapper float-left p-3">
               <img src={this.state.product.image} className="productDetailsImg" alt="product"></img>
