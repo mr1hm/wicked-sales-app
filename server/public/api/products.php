@@ -36,8 +36,8 @@ if (mysqli_num_rows($result) === 0 && $id !== false) {
 } else {
   while ($row = mysqli_fetch_assoc($result)) {
     $row['price'] = intval($row['price']);
-    // $createImageArray = explode(',', $row['images']);
-    // $row['images'] = $createImageArray;
+    $createImageArray = explode(',', $row['images']);
+    $row['images'] = $createImageArray;
     $output['data'][] = $row;
   }
 }
