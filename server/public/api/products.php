@@ -18,8 +18,8 @@ if (!empty($_GET['id'])) {
 
 $query = "SELECT p.`id`, p.`name`, p.`price`, p.`shortDescription`,
             GROUP_CONCAT(i.`url`) AS images
-            FROM `products` as p
-            JOIN `images` as i
+            FROM `products` AS p
+            JOIN `images` AS i
                 ON p.`id` = i.`productId`
             $whereClause
             GROUP BY p.`id`";
