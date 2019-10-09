@@ -7,6 +7,7 @@ require_once 'db_connection.php';
 startUp();
 
 $whereClause = '';
+$id = false;
 
 if (!empty($_GET['id'])) {
   if (!is_numeric($_GET['id'])) {
@@ -21,7 +22,7 @@ $query = "SELECT p.`id`, p.`name`, p.`price`, p.`shortDescription`,
             FROM `products` AS p
             JOIN `images` AS i
                 ON p.`id` = i.`productId`
-            $whereClause
+            WHERE p.`id` = $id
             GROUP BY p.`id`";
 $result = mysqli_query($conn, $query);
 
