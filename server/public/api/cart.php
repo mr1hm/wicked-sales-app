@@ -1,5 +1,7 @@
 <?php
 
+define('INTERNAL', true);
+
 header('Content-Type: application/json');
 
 $method = $_SERVER['REQUEST_METHOD'];
