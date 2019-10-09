@@ -17,12 +17,12 @@ if (!empty($_GET['id'])) {
   $whereClause = " WHERE p.`id` = $id";
 }
 
-$query = "SELECT p.`id`, p.`name`, p.`price`, p.`shortDescription`,
+$query = "SELECT p.`id`, p.`name`, p.`price`, p.`shortDescription`, p.`longDescription`,
             GROUP_CONCAT(i.`url`) AS images
             FROM `products` AS p
             JOIN `images` AS i
                 ON p.`id` = i.`productId`
-            WHERE p.`id` = $id
+            $whereClause
             GROUP BY p.`id`";
 $result = mysqli_query($conn, $query);
 
@@ -36,10 +36,12 @@ if (mysqli_num_rows($result) === 0 && $id !== false) {
   throw new Exception("error id: $id");
 } else {
   while ($row = mysqli_fetch_assoc($result)) {
+    $row['id'] = intval($row['id']);
     $row['price'] = intval($row['price']);
+    $row['price'] = number_format(($row['price'] / 100), 2);
     $createImageArray = explode(',', $row['images']);
     $row['images'] = $createImageArray;
-    $output['data'][] = $row;
+    $output[] = $row;
   }
 }
 
