@@ -17,6 +17,16 @@
   font-weight: 600;
 }
 
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.cartImageDiv {
+  width: 300px;
+  height: 150px;
+}
+
 .header {
   background-image: url('https://wallpaperplay.com/walls/full/8/a/f/203185.jpg');
   background-repeat: no-repeat;
