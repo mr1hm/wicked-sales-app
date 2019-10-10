@@ -13,6 +13,10 @@
   background-color: #EAE7DC;
 }
 
+.cardDiv h5 {
+  font-weight: 600;
+}
+
 .header {
   background-image: url('https://wallpaperplay.com/walls/full/8/a/f/203185.jpg');
   background-repeat: no-repeat;
