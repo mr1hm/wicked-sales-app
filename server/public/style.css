@@ -9,17 +9,25 @@
   height: 300px;
 }
 
+.detailsMain {
+  background-color: #EAE7DC;
+}
+
 .header {
-  background-image: url('http://sfwallpaper.com/images/demon-backgrounds-3.jpg');
+  background-image: url('https://wallpaperplay.com/walls/full/8/a/f/203185.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
   background-color: #EAE7DC;
   border: 2px solid #D8C3A5;
   height: 20vh;
 }
 
 .headerTitle {
+  font-family: 'Knewave', cursive;
   font-size: 36px;
   font-weight: 500;
-  color: #E85A4F;
+  color: rgba(213, 243, 105, 0.637);
   font-style: italic;
 }
 
