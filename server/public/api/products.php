@@ -45,7 +45,12 @@ if (mysqli_num_rows($result) === 0 && $id !== false) {
   }
 }
 
-$json_output = json_encode($output);
-print($json_output);
+if ($id !== false) {
+  $json_output = json_encode($output[0]);
+  print($json_output);
+} else {
+  $json_output = json_encode($output);
+  print($json_output);
+}
 
 ?>

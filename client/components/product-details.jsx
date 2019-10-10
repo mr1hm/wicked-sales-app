@@ -29,17 +29,17 @@ class ProductDetails extends React.Component {
             <button className="btn btn-warning mt-3 ml-3" onClick={() => this.props.setView('catalog', {})}>Back to Catalog</button>
           </div>
           <div className="image-wrapper p-3">
-            <img src={this.state.product[0].images[0]} className="productDetailsImg" alt="product"></img>
+            <img src={this.state.product.images[0]} className="productDetailsImg" alt="product"></img>
           </div>
           <div className="col single-post-content-wrapper p-3">
-            <h1>{this.state.product[0].name}</h1>
+            <h1>{this.state.product.name}</h1>
             <br />
             <div className="priceTag">
-              {`$${this.state.product[0].price}`}
+              {`$${this.state.product.price}`}
             </div>
             <br />
             <div className="shortDescription">
-              {this.state.product[0].shortDescription}
+              {this.state.product.shortDescription}
             </div>
             <br /><br />
             <button className="btn btn-success" onClick={() => this.props.addToCart(this.state.product)}>Add To Cart</button>
@@ -47,7 +47,7 @@ class ProductDetails extends React.Component {
           </div>
           <div className="row">
             <div className="col-12 longDescription p-3">
-              {this.state.product[0].longDescription}
+              {this.state.product.longDescription}
             </div>
           </div>
         </article>
