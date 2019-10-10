@@ -10,14 +10,17 @@
 }
 
 .header {
+  background-image: url('http://sfwallpaper.com/images/demon-backgrounds-3.jpg');
   background-color: #EAE7DC;
   border: 2px solid #D8C3A5;
-  height: 150px;
+  height: 20vh;
 }
 
 .headerTitle {
   font-size: 36px;
   font-weight: 500;
+  color: #E85A4F;
+  font-style: italic;
 }
 
 .main {
@@ -32,7 +35,8 @@
   position: absolute;
   border-radius: 10px;
 }
-/* .eggshellWhite{
+
+.eggshellWhite{
   background-color: #EAE7DC;
 }
 
@@ -50,8 +54,9 @@
 
 .jellBeanRed {
   background-color: #E85A4F;
-} */
+}
 
 .cardDiv {
   border: 2px solid #D8C3A5;
+  background-color: #D8C3A5;
 }

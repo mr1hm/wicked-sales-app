@@ -15,10 +15,27 @@ export default class App extends React.Component {
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
   componentDidMount() {
     this.getCartItems();
+  }
+
+  addToCart(product) {
+    const myInit = {
+      method: 'POST',
+      body: JSON.stringify(product),
+      header: {
+        'Content-Type': 'application/json'
+      }
+    };
+    fetch('/api/cart.php', myInit)
+      .then(response => response.json())
+      .then(product => this.setState({
+        cart: this.state.cart.concat(product)
+      }))
+      .catch(error => console.error(error.message));
   }
 
   getCartItems() {
@@ -46,7 +63,7 @@ export default class App extends React.Component {
       );
     } else if (this.state.view.name === 'details') {
       return (
-        <ProductDetails setView={this.setView} productObj={this.state.view.params.id} />
+        <ProductDetails setView={this.setView} productObj={this.state.view.params.id} addToCart={this.addToCart} />
       );
     }
   }
