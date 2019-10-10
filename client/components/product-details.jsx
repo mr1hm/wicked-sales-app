@@ -23,27 +23,31 @@ class ProductDetails extends React.Component {
       );
     }
     return (
-      <div className="container-fluid">
+      <div className="container detailsMain">
         <article className="row single-post mt-5 no-gutters">
-          <div className="col-6 offset-3">
-            <div className="row offset-1">
-              <button className="btn btn-warning" onClick={() => this.props.setView('catalog', {})}>Back to Catalog</button>
+          <div className="col-12">
+            <button className="btn btn-warning mt-3 ml-3" onClick={() => this.props.setView('catalog', {})}>Back to Catalog</button>
+          </div>
+          <div className="image-wrapper p-3">
+            <img src={this.state.product.images[0]} className="productDetailsImg" alt="product"></img>
+          </div>
+          <div className="col single-post-content-wrapper p-3">
+            <h1>{this.state.product.name}</h1>
+            <br />
+            <div className="priceTag">
+              {`$${this.state.product.price}`}
             </div>
-            <div className="image-wrapper float-left p-3">
-              <img src={this.state.product.image} className="productDetailsImg" alt="product"></img>
-            </div>
-            <div className="single-post-content-wrapper p-3">
-              <h1>{this.state.product.name}</h1>
-              <br />
-              <div className="priceTag">
-                {`$ ${this.state.product.price}`}
-              </div>
-              <br />
+            <br />
+            <div className="shortDescription">
               {this.state.product.shortDescription}
-              <br /><br /><br /><br />
-              <div className="longDescription">
-                {this.state.product.longDescription}
-              </div>
+            </div>
+            <br /><br />
+            <button className="btn btn-success" onClick={() => this.props.addToCart(this.state.product)}>Add To Cart</button>
+            <br /><br /><br />
+          </div>
+          <div className="row">
+            <div className="col-12 longDescription p-3">
+              {this.state.product.longDescription}
             </div>
           </div>
         </article>

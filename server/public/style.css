@@ -8,3 +8,67 @@
   width: 400px;
   height: 300px;
 }
+
+.detailsMain {
+  background-color: #EAE7DC;
+}
+
+.cardDiv h5 {
+  font-weight: 600;
+}
+
+.header {
+  background-image: url('https://wallpaperplay.com/walls/full/8/a/f/203185.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-color: #EAE7DC;
+  border: 2px solid #D8C3A5;
+  height: 20vh;
+}
+
+.headerTitle {
+  font-family: 'Knewave', cursive;
+  font-size: 36px;
+  font-weight: 500;
+  color: rgba(213, 243, 105, 0.637);
+  font-style: italic;
+}
+
+.main {
+  background-color: #EAE7DC;
+}
+
+.itemsInCart {
+  font-size: 20px;
+}
+
+.cartBadge {
+  position: absolute;
+  border-radius: 10px;
+}
+
+.eggshellWhite{
+  background-color: #EAE7DC;
+}
+
+.darkVanilla {
+  background-color: #D8C3A5;
+}
+
+.taupeGray {
+  background-color: #8E8D8A;
+}
+
+.lightJellyBeanRed {
+  background-color: #E98074;
+}
+
+.jellBeanRed {
+  background-color: #E85A4F;
+}
+
+.cardDiv {
+  border: 2px solid #D8C3A5;
+  background-color: #D8C3A5;
+}
