@@ -2,6 +2,15 @@ import React from 'react';
 
 export default class CartSummaryItem extends React.Component {
   render() {
+    let finalPrice = null;
+    const price = this.props.cartItemPrice;
+    let strPrice = price.toString();
+    if (strPrice.indexOf('.') === -1) {
+      const priceNum = parseInt(strPrice);
+      finalPrice = (priceNum / 100).toFixed(2);
+    } else {
+      finalPrice = price;
+    }
     return (
       <>
         <div className="col-8 mt-1 mb-3">
@@ -12,7 +21,7 @@ export default class CartSummaryItem extends React.Component {
               </div>
               <div className="card-body">
                 <h4 className="card-title">{this.props.cartItemName}</h4>
-                <p className="cartItemPriceTag">{`$${(this.props.cartItemPrice / 100).toFixed(2)}`}</p>
+                <p className="cartItemPriceTag">{`$${finalPrice}`}</p>
                 <p className="card-text">{this.props.cartItemInfo}</p>
               </div>
             </div>

@@ -2,19 +2,6 @@ import React from 'react';
 import CartSummaryItem from './cartSummaryItem';
 
 export default class CartSummary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.getCartTotal = this.getCartTotal.bind(this);
-  }
-
-  getCartTotal() {
-    let totalCost = 0;
-    for (let i = 0; i < this.props.cartSummary.length; i++) {
-      totalCost += this.props.cartSummary[i].price;
-    }
-    let grandTotal = (totalCost / 100).toFixed(2);
-    return `$${grandTotal}`;
-  }
 
   render() {
     if (this.props.cartSummary.length === 0) {
@@ -42,8 +29,13 @@ export default class CartSummary extends React.Component {
                 setView={this.props.clickHandler} />
             )}
           </div>
-          <div className="total-price">
-            TOTAL: {this.getCartTotal()}
+          <div className="row">
+            <div className="total-price col-8">
+              TOTAL: {`$${this.props.cartTotal}`}
+            </div>
+            <div className="col">
+              <button className="btn btn-primary p-1 mb-2" onClick={() => this.props.clickHandler('checkout', {})}>Checkout</button>
+            </div>
           </div>
         </>
       );
