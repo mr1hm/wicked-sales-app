@@ -111,3 +111,12 @@ SELECT p.`id`, p.`name`, p.`price`, p.`shortDescription`,
             ON p.`id` = i.`productId`
         <WHERE clause>
         GROUP BY p.`name`
+
+--BACK END 06 QUERY CODE--
+"SELECT p.`id`, p.`name`, p.`price`, p.`shortDescription`,
+            GROUP_CONCAT(i.`url`) AS images
+            FROM `products` AS p
+            JOIN `images` AS i
+                ON p.`id` = i.`productId`
+            WHERE p.`id` = $id
+            GROUP BY p.`id`";
