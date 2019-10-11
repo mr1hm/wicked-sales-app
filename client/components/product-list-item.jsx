@@ -10,7 +10,7 @@ export default class ProductListItem extends React.Component {
             <h5 className="card-title">{this.props.productName}</h5>
             <p className="productListItem-price">{`$${this.props.productPrice}`}</p>
             <p className="card-text">{this.props.productInfo}</p>
-            <button className="btn btn-primary" onClick={() => this.props.setViewPass('details', { id: this.props.productId })}>Product Details</button>
+            <button className="btn btn-primary productDetailsBtn" onClick={() => this.props.setViewPass('details', { id: this.props.productId })}>Product Details</button>
           </div>
         </div>
       </div>

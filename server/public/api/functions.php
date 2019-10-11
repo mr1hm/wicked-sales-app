@@ -15,7 +15,9 @@ function startUp() {
 }
 
 function getBodyData() {
-  $data = $_GET();
+  $body = file_get_contents('php://input');
+  $data = json_decode($body, true);
+  return $data;
 }
 
 ?>
