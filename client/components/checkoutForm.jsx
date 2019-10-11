@@ -25,8 +25,6 @@ export default class CheckoutForm extends React.Component {
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
-      [name]: value,
-      [name]: value,
       [name]: value
     });
   }
