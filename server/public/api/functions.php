@@ -14,4 +14,8 @@ function startUp() {
   header('Content-type:application/json');
 }
 
+function getBodyData() {
+  $data = $_GET();
+}
+
 ?>
