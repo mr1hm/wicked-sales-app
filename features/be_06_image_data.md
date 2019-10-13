@@ -118,5 +118,5 @@ SELECT p.`id`, p.`name`, p.`price`, p.`shortDescription`,
             FROM `products` AS p
             JOIN `images` AS i
                 ON p.`id` = i.`productId`
-            WHERE p.`id` = $id
+            WHERE p.`id` = $cartId
             GROUP BY p.`id`";

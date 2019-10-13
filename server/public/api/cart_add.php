@@ -1,10 +1,6 @@
 <?php
 
-require_once 'functions.php';
-set_exception_handler('error_handler');
-require_once 'db_connection.php';
-
-if (defined('INTERNAL')) {
+if (!defined('INTERNAL')) {
   exit('will not allow direct access');
 }
 
@@ -20,6 +16,8 @@ if ($id <= 0) {
   throw new Exception('id is not greater 0');
 }
 
+print($id);
+
 if (!empty($_SESSION['cartId'])) {
   $cartId = $_SESSION['cartId'];
 } else {
@@ -28,7 +26,7 @@ if (!empty($_SESSION['cartId'])) {
 
 print($cartId);
 
-$selectQuery = "SELECT price FROM `products` WHERE `id` = $id";
+$selectQuery = "SELECT `price` FROM `products` WHERE `id` = $id";
 $result = mysqli_query($conn, $selectQuery);
 
 if (!$result) {
@@ -42,6 +40,13 @@ if (mysqli_num_rows($result) === 0) {
 }
 
 $productData = mysqli_fetch_assoc($result);
+// $intPrice = $productData['']
+// $productData = [];
+// while ($productData = mysqli_fetch_assoc($result)) {
+//   $productData['id'] = intval($productData['id']);
+//   $productData['price'] = intval($productData['price']);
+//   $output[] = $productData;
+// }
 
 $transactionResult = mysqli_query($conn, 'START TRANSACTION');
 
@@ -62,7 +67,7 @@ if (!$cartId) {
 }
 
 $cartItemsInsertQuery = "INSERT INTO `cartItems`
-    SET `productID` = $id, `count` = 1, `price` = {$productData['price']}, `added`=NOW()
+    SET `productID` = $id, `count` = 1, `price` = {$productData['price']}, `added`=NOW(), `cartID` = $cartId
     ON DUPLICATE KEY UPDATE
     `count` = `count` + 1";
 

@@ -30,10 +30,11 @@ export default class App extends React.Component {
   getCartTotal() {
     let totalCost = 0;
     for (let i = 0; i < this.state.cart.length; i++) {
-      totalCost += this.state.cart[i].price;
+      let price = this.state.cart[i].price * this.state.cart[i].count;
+      totalCost += price;
     }
     let grandTotal = (totalCost / 100).toFixed(2);
-    this.setState({ cartTotal: grandTotal });
+    return grandTotal;
   }
 
   placeOrder(userInfo) {
@@ -58,6 +59,12 @@ export default class App extends React.Component {
     });
   }
 
+  setNumberPrice(cartItemPrice) {
+    this.setState({
+
+    });
+  }
+
   addToCart(product) {
     const myInit = {
       method: 'POST',
@@ -68,9 +75,13 @@ export default class App extends React.Component {
     };
     fetch('/api/cart.php', myInit)
       .then(response => response.json())
-      .then(product => this.setState({
-        cart: this.state.cart.concat(product)
-      }))
+      .then(productItem => {
+        let cart = this.state.cart.slice();
+        cart.push(productItem);
+        this.setState({
+          cart: cart
+        });
+      })
       .catch(error => console.error(error.message));
   }
 
@@ -80,7 +91,6 @@ export default class App extends React.Component {
       .then(cartData => this.setState({
         cart: cartData
       }))
-      .then(() => this.getCartTotal())
       .catch(error => console.error(error.message));
   }
 
@@ -106,21 +116,21 @@ export default class App extends React.Component {
       if (this.state.cart.length === 0) {
         return (
           <div className="container main">
-            <Header text="Cart Summary" cartItemCount={this.state.cart.length} />
+            <Header text="Cart Summary" setViewCart={this.setView} cartItemCount={this.state.cart.length} />
             <CartSummary text="There are no items in your cart" cartSummary={this.state.cart} clickHandler={this.setView} />
           </div>
         );
       }
       return (
         <div className="container main">
-          <Header text="Cart Summary" cartItemCount={this.state.cart.length} />
-          <CartSummary cartTotal={this.state.cartTotal} cartSummary={this.state.cart} clickHandler={this.setView} />
+          <Header text="Cart Summary" setViewCart={this.setView} cartItemCount={this.state.cart.length} />
+          <CartSummary cartTotal={this.getCartTotal} cartSummary={this.state.cart} clickHandler={this.setView} />
         </div>
       );
     } else if (this.state.view.name === 'checkout') {
       return (
         <div className="container main">
-          <Header text="Checkout" cartItemCount={this.state.cart.length} />
+          <Header text="Checkout" setViewCart={this.setView} cartItemCount={this.state.cart.length} />
           <CheckoutForm placeOrder={this.placeOrder} cartTotal={this.state.cartTotal} cartSummary={this.state.cart} backToCatalog={this.setView} />
         </div>
       );
