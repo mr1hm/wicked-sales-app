@@ -1,8 +1,8 @@
 <?php
 
-// if (defined('INTERNAL')) {
-//   exit('will not allow direct access - cart_get');
-// }
+if (!defined('INTERNAL')) {
+  exit('will not allow direct access - cart_get');
+}
 
 if (empty($_SESSION['cartId'])) {
   print(json_encode([]));
@@ -30,6 +30,7 @@ $output = [];
 while ($row = mysqli_fetch_assoc($result)) {
   $row['id'] = intval($row['id']);
   $row['price'] = intval($row['price']);
+  $row['price'] = number_format(($row['price'] / 100), 2);
   $output[] = $row;
 }
 

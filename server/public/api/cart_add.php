@@ -24,8 +24,6 @@ if (!empty($_SESSION['cartId'])) {
   $cartId = false;
 }
 
-print($cartId);
-
 $selectQuery = "SELECT `price` FROM `products` WHERE `id` = $id";
 $result = mysqli_query($conn, $selectQuery);
 
@@ -39,14 +37,15 @@ if (mysqli_num_rows($result) === 0) {
   throw new Exception("error id: $id");
 }
 
-$productData = mysqli_fetch_assoc($result);
+$productData;
 // $intPrice = $productData['']
 // $productData = [];
-// while ($productData = mysqli_fetch_assoc($result)) {
-//   $productData['id'] = intval($productData['id']);
-//   $productData['price'] = intval($productData['price']);
-//   $output[] = $productData;
-// }
+while ($row = mysqli_fetch_assoc($result)) {
+  $row['id'] = intval($row['id']);
+  $row['price'] = intval($row['price']);
+  // $row['price'] = number_format(($row['price'] / 100), 2); - this is causing issues with number formatting.
+  $productData = $row;
+}
 
 $transactionResult = mysqli_query($conn, 'START TRANSACTION');
 

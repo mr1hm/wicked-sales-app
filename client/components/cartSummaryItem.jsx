@@ -11,9 +11,15 @@ export default class CartSummaryItem extends React.Component {
     // } else {
     //   finalPrice = price;
     // }
+    let productTotal = null;
+    if (this.props.cartItemCount > 1) {
+      productTotal = this.props.cartItemPrice * this.props.cartItemCount;
+    } else {
+      productTotal = this.props.cartItemPrice;
+    }
     return (
       <>
-        <div className="col-8 mt-1 mb-3">
+        <div className="offset-2 col-8 mb-3">
           <div className="card">
             <div className="card-horizontal">
               <div className="img-square-wrapper">
@@ -21,8 +27,8 @@ export default class CartSummaryItem extends React.Component {
               </div>
               <div className="card-body">
                 <h4 className="card-title">{this.props.cartItemName}</h4>
-                <p className="itemCount">{`AMOUNT: ${this.props.cartItemCount}`}</p>
-                <p className="cartItemPriceTag">{`$${this.props.cartItemPrice}`}</p>
+                <p className="itemCount">{`QUANTITY: ${this.props.cartItemCount}`}</p>
+                <p className="cartItemPriceTag">{`$${productTotal}`}</p>
                 <p className="card-text">{this.props.cartItemInfo}</p>
               </div>
             </div>

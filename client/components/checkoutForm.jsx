@@ -30,11 +30,12 @@ export default class CheckoutForm extends React.Component {
   }
 
   render() {
+    let total = this.props.cartTotal();
     return (
       <form>
         <div className="row">
           <div className='col-12 order-total'>
-            Order Total: {`$${this.props.cartTotal}`}
+            Order Total: {`$${total}`}
           </div>
         </div>
         <br/>

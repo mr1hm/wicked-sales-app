@@ -33,8 +33,7 @@ export default class App extends React.Component {
       let price = this.state.cart[i].price * this.state.cart[i].count;
       totalCost += price;
     }
-    let grandTotal = (totalCost / 100).toFixed(2);
-    return grandTotal;
+    return totalCost;
   }
 
   placeOrder(userInfo) {
@@ -56,12 +55,6 @@ export default class App extends React.Component {
       .catch(error => console.error(error.message));
     this.setState({
       view: { name: 'catalog', params: {} }
-    });
-  }
-
-  setNumberPrice(cartItemPrice) {
-    this.setState({
-
     });
   }
 
@@ -131,7 +124,7 @@ export default class App extends React.Component {
       return (
         <div className="container main">
           <Header text="Checkout" setViewCart={this.setView} cartItemCount={this.state.cart.length} />
-          <CheckoutForm placeOrder={this.placeOrder} cartTotal={this.state.cartTotal} cartSummary={this.state.cart} backToCatalog={this.setView} />
+          <CheckoutForm placeOrder={this.placeOrder} cartTotal={this.getCartTotal} cartSummary={this.state.cart} backToCatalog={this.setView} />
         </div>
       );
     }
