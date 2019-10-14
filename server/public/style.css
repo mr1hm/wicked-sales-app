@@ -34,6 +34,7 @@
   background-position: center center;
   background-color: #EAE7DC;
   border: 2px solid #D8C3A5;
+  border-radius: 5px;
   height: 20vh;
 }
 
@@ -57,6 +58,10 @@
 
 .itemsInCart {
   font-size: 20px;
+}
+
+.total-price {
+  font-size: 18px;
 }
 
 .order-total {

@@ -20,6 +20,7 @@ print($id);
 
 if (!empty($_SESSION['cartId'])) {
   $cartId = $_SESSION['cartId'];
+  print('cartID' . $cartId);
 } else {
   $cartId = false;
 }
@@ -37,15 +38,7 @@ if (mysqli_num_rows($result) === 0) {
   throw new Exception("error id: $id");
 }
 
-$productData;
-// $intPrice = $productData['']
-// $productData = [];
-while ($row = mysqli_fetch_assoc($result)) {
-  $row['id'] = intval($row['id']);
-  $row['price'] = intval($row['price']);
-  // $row['price'] = number_format(($row['price'] / 100), 2); - this is causing issues with number formatting.
-  $productData = $row;
-}
+$productData = mysqli_fetch_assoc($result);
 
 $transactionResult = mysqli_query($conn, 'START TRANSACTION');
 
@@ -66,7 +59,7 @@ if (!$cartId) {
 }
 
 $cartItemsInsertQuery = "INSERT INTO `cartItems`
-    SET `productID` = $id, `count` = 1, `price` = {$productData['price']}, `added`=NOW(), `cartID` = $cartId
+    SET `count` = 1, `productID` = $id, `price` = {$productData['price']}, `added`=NOW(), `cartID` = $cartId
     ON DUPLICATE KEY UPDATE
     `count` = `count` + 1";
 

@@ -2,15 +2,6 @@ import React from 'react';
 
 export default class CartSummaryItem extends React.Component {
   render() {
-    // let finalPrice = null; // most likely the issue with total price in cart summary.
-    // const price = this.props.cartItemPrice;
-    // let strPrice = price.toString();
-    // if (strPrice.indexOf('.') === -1) {
-    //   const priceNum = parseInt(strPrice);
-    //   finalPrice = (priceNum / 100).toFixed(2);
-    // } else {
-    //   finalPrice = price;
-    // }
     let productTotal = null;
     if (this.props.cartItemCount > 1) {
       productTotal = this.props.cartItemPrice * this.props.cartItemCount;
