@@ -7,7 +7,7 @@ session_start();
 set_exception_handler('error_handler');
 require_once 'db_connection.php';
 
-header('Content-Type: application/json');
+startUp();
 
 switch($_SERVER['REQUEST_METHOD']) {
   case 'POST':

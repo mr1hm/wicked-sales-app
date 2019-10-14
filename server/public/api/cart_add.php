@@ -16,8 +16,6 @@ if ($id <= 0) {
   throw new Exception('id is not greater 0');
 }
 
-print($id);
-
 if (!empty($_SESSION['cartId'])) {
   $cartId = $_SESSION['cartId'];
   print('cartID' . $cartId);
