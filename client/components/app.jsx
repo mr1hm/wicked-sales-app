@@ -76,6 +76,7 @@ export default class App extends React.Component {
         });
       })
       .catch(error => console.error(error.message));
+    this.getCartItems(); // bandaid fix for refreshing page after adding product to cart and showing updated count in cart.
   }
 
   getCartItems() {
@@ -103,7 +104,7 @@ export default class App extends React.Component {
       );
     } else if (this.state.view.name === 'details') {
       return (
-        <ProductDetails setView={this.setView} productObj={this.state.view.params.id} addToCart={this.addToCart} />
+        <ProductDetails getCartItems={this.getCartItems} setView={this.setView} productObj={this.state.view.params.id} addToCart={this.addToCart} />
       );
     } else if (this.state.view.name === 'cart') {
       if (this.state.cart.length === 0) {
