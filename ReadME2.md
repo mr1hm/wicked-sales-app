@@ -1,6 +1,6 @@
 # Wicked Sales
 
-Live: 
+Live: wickedsales.kevinihm.com
 
 > - Maintained by: `mr1hm`
 
