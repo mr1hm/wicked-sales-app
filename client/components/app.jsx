@@ -76,7 +76,7 @@ export default class App extends React.Component {
         });
       })
       .catch(error => console.error(error.message));
-    this.getCartItems(); // bandaid fix for refreshing page after adding product to cart and showing updated count in cart.
+    this.getCartItems();
   }
 
   getCartItems() {
