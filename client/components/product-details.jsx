@@ -11,9 +11,11 @@ class ProductDetails extends React.Component {
   componentDidMount() {
     fetch(`api/products.php?id=${this.props.productObj}`)
       .then(response => response.json())
-      .then(productData => this.setState({
-        product: productData
-      }));
+      .then(productData => {
+        this.setState({
+          product: productData
+        });
+      });
   }
 
   render() {

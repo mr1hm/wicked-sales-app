@@ -14,4 +14,10 @@ function startUp() {
   header('Content-type:application/json');
 }
 
+function getBodyData() {
+  $body = file_get_contents('php://input');
+  $data = json_decode($body, true);
+  return $data;
+}
+
 ?>
