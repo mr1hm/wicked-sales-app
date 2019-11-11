@@ -1,3 +1,2 @@
-#Alt-H1 
+#wicked-sales-app
 ======
-wicked-sales-app
