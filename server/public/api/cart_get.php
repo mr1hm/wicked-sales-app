@@ -5,7 +5,7 @@ if (!defined('INTERNAL')) {
 }
 
 if (empty($_SESSION['cartId'])) {
-  print(json_encode([]));
+  print(json_encode([], 'we have no cart for this person'));
   exit;
 }
 
