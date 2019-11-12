@@ -6,7 +6,7 @@ if (!defined('INTERNAL')) {
 
 if (empty($_SESSION['cartId'])) {
   print(json_encode([]));
-  exit('we have no cart for this person');
+  exit;
 }
 
 $cartId = intval($_SESSION['cartId']);
