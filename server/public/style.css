@@ -50,6 +50,24 @@ body {
   font-style: italic;
 }
 
+.categoriesContainer {
+  border: 2px solid #D8C3A5;
+  margin-top: 5px;
+  /* height: 15vh; */
+  background-color: maroon;
+}
+
+.productListItems {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.categoriesSections {
+  font-family: 'Knewave', cursive;
+  font-size: 18px;
+  color: rgba(213, 243, 105, 0.637);
+}
+
 .productDetailsBtn {
   background-color: maroon;
   color: white;

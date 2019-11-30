@@ -4,7 +4,6 @@ import CartSummaryItem from './cartSummaryItem';
 export default class CartSummary extends React.Component {
 
   render() {
-    let total = this.props.cartTotal().toFixed(2);
     if (this.props.cartSummary.length === 0) {
       return (
         <div className="offset-2 col-8">
@@ -36,7 +35,7 @@ export default class CartSummary extends React.Component {
           </div>
           <div className="row">
             <div className="total-price offset-2 col-8 d-flex justify-content-between mb-2">
-              TOTAL: {`$${total}`}
+              TOTAL: {`${this.props.cartTotal().toFixed(2)}`}
               <button className="btn btn-primary p-1" onClick={() => this.props.clickHandler('checkout', {})}>Checkout</button>
             </div>
           </div>

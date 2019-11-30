@@ -4,6 +4,7 @@ import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cartSummary';
 import CheckoutForm from './checkoutForm';
+import Categories from './categories';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -97,8 +98,9 @@ export default class App extends React.Component {
   render() {
     if (this.state.view.name === 'catalog') {
       return (
-        <div className="container main">
-          <Header text="Wicked Sales" setViewCart={this.setView} cartItemCount={this.state.cart.length}/>
+        <div className="container-fluid main">
+          <Header text="techNet" setViewCart={this.setView} cartItemCount={this.state.cart.length}/>
+          <Categories setViewCart={this.setView} cartItemCount={this.state.cart.length} />
           <ProductList setView={this.setView} />
         </div>
       );
@@ -109,21 +111,21 @@ export default class App extends React.Component {
     } else if (this.state.view.name === 'cart') {
       if (this.state.cart.length === 0) {
         return (
-          <div className="container main">
+          <div className="container-fluid main">
             <Header text="Cart Summary" setViewCart={this.setView} cartItemCount={this.state.cart.length} />
             <CartSummary text="There are no items in your cart" cartSummary={this.state.cart} clickHandler={this.setView} />
           </div>
         );
       }
       return (
-        <div className="container main">
+        <div className="container-fluid main">
           <Header text="Cart Summary" setViewCart={this.setView} cartItemCount={this.state.cart.length} />
           <CartSummary cartTotal={this.getCartTotal} cartSummary={this.state.cart} clickHandler={this.setView} />
         </div>
       );
     } else if (this.state.view.name === 'checkout') {
       return (
-        <div className="container main">
+        <div className="container-fluid main">
           <Header text="Checkout" setViewCart={this.setView} cartItemCount={this.state.cart.length} />
           <CheckoutForm placeOrder={this.placeOrder} cartTotal={this.getCartTotal} cartSummary={this.state.cart} backToCatalog={this.setView} />
         </div>
