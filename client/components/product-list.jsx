@@ -14,6 +14,17 @@ export default class ProductList extends React.Component {
   }
 
   getProducts() {
+    if (this.props.currentView === 'computers') {
+      const body = { category: 'computers' };
+      const init = { method: 'POST', body: JSON.stringify(body) };
+      fetch('api/products.php', init)
+        .then(res => res.json())
+        .then(computers => {
+          this.setState({
+            products: computers
+          });
+        });
+    }
     fetch('/api/products.php')
       .then(response => response.json())
       .then(productsList => this.setState({
@@ -29,6 +40,7 @@ export default class ProductList extends React.Component {
           <ProductListItem
             key={product.id}
             productId={product.id}
+            productMainImg={product.mainImage}
             productImg={product.images}
             productInfo={product.shortDescription}
             productName={product.name}

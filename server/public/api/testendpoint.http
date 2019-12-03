@@ -1,1 +1,1 @@
-GET http://wickedsales.kevinihm.com/api/products.php
+GET http://localhost:3000/api/products.php

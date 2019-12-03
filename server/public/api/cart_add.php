@@ -23,11 +23,22 @@ if (!empty($_SESSION['cartId'])) {
   $cartId = false;
 }
 
-$selectQuery = "SELECT `price` FROM `products` WHERE `id` = $id";
-$result = mysqli_query($conn, $selectQuery);
+if (isset($bodyData['category'])) {
+  $category = $bodyData['category'];
+  $query = "SELECT * FROM `products` AS p
+            WHERE p.`category` = $category";
+  $result = mysqli_query($conn, $query);
 
-if (!$result) {
-  throw new Exception('error in cart_add query' . mysqli_error($conn));
+  if (!$result) {
+    throw new Exception('mysql error ' . mysqli_error($conn));
+  }
+} else {
+  $selectQuery = "SELECT `price` FROM `products` WHERE `id` = $id";
+  $result = mysqli_query($conn, $selectQuery);
+
+  if (!$result) {
+    throw new Exception('error in cart_add query' . mysqli_error($conn));
+  }
 }
 
 $output = [];

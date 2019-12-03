@@ -5,7 +5,7 @@ export default class ProductListItem extends React.Component {
     return (
       <div className="col-4 productListItems">
         <div className="card h-100 cardDiv">
-          <img src={this.props.productImg[1]} alt="image" className="cardImage card-img-top" />
+          <img src={`${this.props.productMainImg}`} alt="image" className="cardImage card-img-top" />
           <div className="card-body">
             <h5 className="card-title">{this.props.productName}</h5>
             <p className="productListItem-price">{`$${this.props.productPrice}`}</p>

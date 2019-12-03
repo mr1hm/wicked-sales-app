@@ -5,6 +5,7 @@ import ProductDetails from './product-details';
 import CartSummary from './cartSummary';
 import CheckoutForm from './checkoutForm';
 import Categories from './categories';
+import GamingComputers from './gaming-computers';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -100,8 +101,8 @@ export default class App extends React.Component {
       return (
         <div className="container-fluid main">
           <Header text="techNet" setViewCart={this.setView} cartItemCount={this.state.cart.length}/>
-          <Categories setViewCart={this.setView} cartItemCount={this.state.cart.length} />
-          <ProductList setView={this.setView} />
+          <Categories setViewCategory={this.setView} cartItemCount={this.state.cart.length} />
+          <ProductList currentView={this.state.view.name} setView={this.setView} />
         </div>
       );
     } else if (this.state.view.name === 'details') {
@@ -128,6 +129,13 @@ export default class App extends React.Component {
         <div className="container-fluid main">
           <Header text="Checkout" setViewCart={this.setView} cartItemCount={this.state.cart.length} />
           <CheckoutForm placeOrder={this.placeOrder} cartTotal={this.getCartTotal} cartSummary={this.state.cart} backToCatalog={this.setView} />
+        </div>
+      );
+    } else if (this.state.view.name === 'computers') {
+      return (
+        <div className="container-fluid main">
+          <Header text="Pre-built Desktops" setViewCart={this.setView} cartItemCount={this.state.cart.length} />
+          <GamingComputers addToCart={this.addToCart} cartTotal={this.getCartTotal} cartSummary={this.state.cart} backToCatalog={this.setView} />
         </div>
       );
     }
