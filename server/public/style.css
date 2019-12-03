@@ -4,7 +4,7 @@ body {
 
 .cardImage {
   width: 100%;
-  height: 15vw;
+  height: 30vh;
   object-fit: cover;
 }
 
@@ -19,6 +19,29 @@ body {
 
 .cardDiv h5 {
   font-weight: 600;
+}
+
+.featured-carousel {
+  margin: 0;
+}
+
+.image-slide {
+  transition: background-image .3s ease-in-out;
+}
+
+.slide-arrow {
+  color: maroon;
+  cursor: pointer;
+  font-size: 2rem;
+  position: fixed;
+}
+
+.slide-arrow.right {
+  right: 1rem;
+}
+
+.slide-arrow.left {
+  left: 1rem;
 }
 
 .card-horizontal {
@@ -53,7 +76,6 @@ body {
 .categoriesContainer {
   border: 2px solid #D8C3A5;
   margin-top: 5px;
-  /* height: 15vh; */
   background-color: maroon;
 }
 
@@ -63,9 +85,10 @@ body {
 }
 
 .categoriesSections {
-  font-family: 'Knewave', cursive;
+  /* font-family: 'Open Sans', sans-serif; */
   font-size: 18px;
-  color: rgba(213, 243, 105, 0.637);
+  font-weight: 700;
+  color: rgba(213, 243, 105, 0.637)!important;
 }
 
 .productDetailsBtn {

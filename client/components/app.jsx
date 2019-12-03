@@ -6,6 +6,9 @@ import CartSummary from './cartSummary';
 import CheckoutForm from './checkoutForm';
 import Categories from './categories';
 import GamingComputers from './gaming-computers';
+import Hardware from './hardware';
+import Misc from './miscellaneous';
+import FeaturedCarousel from './featured-carousel';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -102,12 +105,13 @@ export default class App extends React.Component {
         <div className="container-fluid main">
           <Header text="techNet" setViewCart={this.setView} cartItemCount={this.state.cart.length}/>
           <Categories setViewCategory={this.setView} cartItemCount={this.state.cart.length} />
+          <FeaturedCarousel />
           <ProductList currentView={this.state.view.name} setView={this.setView} />
         </div>
       );
     } else if (this.state.view.name === 'details') {
       return (
-        <ProductDetails getCartItems={this.getCartItems} setView={this.setView} productObj={this.state.view.params.id} addToCart={this.addToCart} />
+        <ProductDetails getCartItems={this.getCartItems} setView={this.setView} productId={this.state.view.params.id} addToCart={this.addToCart} />
       );
     } else if (this.state.view.name === 'cart') {
       if (this.state.cart.length === 0) {
@@ -134,8 +138,25 @@ export default class App extends React.Component {
     } else if (this.state.view.name === 'computers') {
       return (
         <div className="container-fluid main">
-          <Header text="Pre-built Desktops" setViewCart={this.setView} cartItemCount={this.state.cart.length} />
+          <Header text="Custom Desktops" setViewCart={this.setView} cartItemCount={this.state.cart.length} />
+          <Categories setViewCategory={this.setView} cartItemCount={this.state.cart.length} />
           <GamingComputers addToCart={this.addToCart} cartTotal={this.getCartTotal} cartSummary={this.state.cart} backToCatalog={this.setView} />
+        </div>
+      );
+    } else if (this.state.view.name === 'hardware') {
+      return (
+        <div className="container-fluid main">
+          <Header text="Computer Hardware" setViewCart={this.setView} cartItemCount={this.state.cart.length} />
+          <Categories setViewCategory={this.setView} cartItemCount={this.state.cart.length} />
+          <Hardware addToCart={this.addToCart} cartTotal={this.getCartTotal} cartSummary={this.state.cart} backToCatalog={this.setView} />
+        </div>
+      );
+    } else if (this.state.view.name === 'misc') {
+      return (
+        <div className="container-fluid main">
+          <Header text="Computer Hardware" setViewCart={this.setView} cartItemCount={this.state.cart.length} />
+          <Categories setViewCategory={this.setView} cartItemCount={this.state.cart.length} />
+          <Misc addToCart={this.addToCart} cartTotal={this.getCartTotal} cartSummary={this.state.cart} backToCatalog={this.setView} />
         </div>
       );
     }

@@ -1,35 +1,39 @@
 import React from 'react';
 import ProductListItem from './product-list-item';
 
-export default class ProductList extends React.Component {
+export default class Hardware extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      hardware: null
     };
   }
 
   componentDidMount() {
-    this.getFeaturedProducts();
+    this.getHardwareProducts();
   }
 
-  getFeaturedProducts() {
-    const body = { featured: 1 };
+  getHardwareProducts() {
+    const body = { hardware: 1 };
     const init = { method: 'POST', body: JSON.stringify(body) };
-    fetch('api/products.php', init)
-      .then(res => res.json())
-      .then(products => {
+    fetch(`api/products.php`, init)
+      .then(response => response.json())
+      .then(hardware => {
         this.setState({
-          products
+          hardware
         });
       })
       .catch(error => console.error(error));
   }
 
   render() {
+    const { hardware } = this.state;
+    if (hardware === null) {
+      return null;
+    }
     return (
       <div className="productList row">
-        {this.state.products.map(product =>
+        {hardware.map(product =>
           <ProductListItem
             key={product.id}
             productId={product.id}

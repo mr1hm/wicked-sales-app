@@ -9,13 +9,14 @@ class ProductDetails extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`api/products.php?id=${this.props.productObj}`)
+    fetch(`api/products.php?id=${this.props.productId}`)
       .then(response => response.json())
-      .then(productData => {
+      .then(product => {
         this.setState({
-          product: productData
+          product
         });
-      });
+      })
+      .catch(error => console.error(error));
   }
 
   render() {
@@ -31,7 +32,7 @@ class ProductDetails extends React.Component {
             <button className="btn btn-warning mt-3 ml-3" onClick={() => this.props.setView('catalog', {})}>Back to Catalog</button>
           </div>
           <div className="image-wrapper p-3">
-            <img src={this.state.product.images[0]} className="productDetailsImg" alt="product"></img>
+            <img src={this.state.product.mainImage} className="productDetailsImg" alt="product"></img>
           </div>
           <div className="col single-post-content-wrapper p-3">
             <h1>{this.state.product.name}</h1>

@@ -14,14 +14,12 @@ export default class Categories extends React.Component {
       <div className="container-fluid categoriesContainer">
         <div className="row">
           <div className="col-3 d-flex justify-content-center">
-            <button onClick={() => this.props.setViewCategory('computers', {})} className="categoriesSections">
-              Pre-built Desktops
-            </button>
+            <a onClick={() => this.props.setViewCategory('computers', {})} className="categoriesSections">
+              Custom Desktops
+            </a>
           </div>
           <div className="col-3 d-flex justify-content-center">
-            <span className="categoriesSections">
-              <button onClick={() => this.props.setViewCategory('hardware', {})}>Computer Hardware</button>
-            </span>
+            <a className="categoriesSections" onClick={() => this.props.setViewCategory('hardware', {})}>Computer Hardware</a>
           </div>
           <div className="col-3 d-flex justify-content-center">
             <span className="categoriesSections">

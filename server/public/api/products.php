@@ -4,6 +4,7 @@ set_exception_handler('error_handler');
 require_once 'db_connection.php';
 
 startUp();
+$bodyData = getBodyData();
 
 $whereClause = '';
 $id = false;
@@ -16,12 +17,44 @@ if (!empty($_GET['id'])) {
   $whereClause = " WHERE p.`id` = $id";
 }
 
+// $category = false;
+// if (isset($bodyData['computers'])) {
+//   $category = " p.`category` = `computers`";
+// }
+
 $query = "SELECT p.`id`, p.`name`, p.`price`, p.`shortDescription`, p.`longDescription`, p.`specs`, p.`image` AS mainImage,
             GROUP_CONCAT(i.`url`) AS images
             FROM `products` AS p
             JOIN `images` AS i ON p.`id` = i.`productId`
-            $whereClause
+            $whereClause AND p.`featured` = 1
             GROUP BY p.`id`";
+
+if (isset($bodyData['computers'])) {
+  $query = "SELECT p.`id`, p.`name`, p.`price`, p.`shortDescription`, p.`longDescription`, p.`specs`, p.`image` AS mainImage,
+            GROUP_CONCAT(i.`url`) AS images
+            FROM `products` AS p
+            JOIN `images` AS i ON p.`id` = i.`productId`
+            $whereClause AND p.`category` = 'computers'
+            GROUP BY p.`id`";
+}
+if (isset($bodyData['hardware'])) {
+  $query = "SELECT p.`id`, p.`name`, p.`price`, p.`shortDescription`, p.`longDescription`, p.`specs`, p.`image` AS mainImage,
+          GROUP_CONCAT(i.`url`) AS images
+          FROM `products` AS p
+          JOIN `images` AS i ON p.`id` = i.`productId`
+          $whereClause AND p.`category` = 'hardware'
+          GROUP BY p.`id`";
+}
+if (isset($bodyData['misc'])) {
+  $query = "SELECT p.`id`, p.`name`, p.`price`, p.`shortDescription`, p.`longDescription`, p.`specs`, p.`image` AS mainImage,
+          GROUP_CONCAT(i.`url`) AS images
+          FROM `products` AS p
+          JOIN `images` AS i ON p.`id` = i.`productId`
+          $whereClause AND p.`category` = 'misc'
+          GROUP BY p.`id`";
+}
+
+
 $result = mysqli_query($conn, $query);
 
 if (!$result) {
