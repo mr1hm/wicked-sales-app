@@ -8,7 +8,6 @@ import Categories from './categories';
 import GamingComputers from './gaming-computers';
 import Hardware from './hardware';
 import Misc from './miscellaneous';
-import FeaturedCarousel from './featured-carousel';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -77,7 +76,7 @@ export default class App extends React.Component {
         let cart = this.state.cart.slice();
         cart.push(productItem);
         this.setState({
-          cart: cart
+          cart
         });
       })
       .catch(error => console.error(error.message));
@@ -105,7 +104,6 @@ export default class App extends React.Component {
         <div className="container-fluid main">
           <Header text="techNet" setViewCart={this.setView} cartItemCount={this.state.cart.length}/>
           <Categories setViewCategory={this.setView} cartItemCount={this.state.cart.length} />
-          <FeaturedCarousel />
           <ProductList currentView={this.state.view.name} setView={this.setView} />
         </div>
       );

@@ -20,6 +20,7 @@ class ProductDetails extends React.Component {
   }
 
   render() {
+    const { product } = this.state;
     if (this.state.product === null) {
       return (
         <h1>LOADING</h1>
@@ -40,18 +41,27 @@ class ProductDetails extends React.Component {
             <div className="priceTag">
               {`$${this.state.product.price}`}
             </div>
+            <button className="btn btn-success" onClick={() => this.props.addToCart(this.state.product)}>Add To Cart</button>
+            <br /><br />
             <br />
             <div className="shortDescription">
               {this.state.product.shortDescription}
             </div>
             <br /><br />
-            <button className="btn btn-success" onClick={() => this.props.addToCart(this.state.product)}>Add To Cart</button>
-            <br /><br /><br />
           </div>
           <div className="row">
             <div className="col-12 longDescription p-3">
               {this.state.product.longDescription}
             </div>
+          </div>
+          <div className="row productSpecs">
+            <ul>
+              {product.specs.map((spec, index) => {
+                return (
+                  <li key={`spec${index}`}>{spec}</li>
+                );
+              })}
+            </ul>
           </div>
         </article>
       </div>
