@@ -1,4 +1,5 @@
 import React from 'react';
+// import { Switch, Route } from 'react-router-dom';
 import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
