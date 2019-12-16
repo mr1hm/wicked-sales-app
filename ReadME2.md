@@ -7,14 +7,14 @@ Live: wickedsales.kevinihm.com
 
 A full stack LAMP & React e-commerce web application.
 
-# Features
+## Features
 
 - View product details
 - Filter products by category
 - Add products to cart
 - Review and checkout products from cart
 
-# Getting Started
+## Getting Started
 
 - Fork this repository to your github
 - Clone this repository from your github to your computer
@@ -23,6 +23,15 @@ A full stack LAMP & React e-commerce web application.
 - Run "npm install"
 > $ npm install
 
-- Start a dev environment with access to Apache2 and MySQL.
-  - Check that port is directed to 3000.
-> $ 
+- Start a dev environment with access to Apache2 and MySQL
+  - Check that port is directed to 3000
+  - Check that root directory of server is set to the public folder
+  - Run "npm run dev" to initiate the local server
+> $ npm run dev
+
+## Languages Used
+
+- React
+- JavaScript
+- PHP
+- MySQL
