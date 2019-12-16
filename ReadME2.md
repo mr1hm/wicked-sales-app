@@ -1,4 +1,5 @@
-# Wicked Sales
+TECHNET
+======
 
 Live: wickedsales.kevinihm.com
 
