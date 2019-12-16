@@ -3,6 +3,13 @@ TechNet
 
 Live: wickedsales.kevinihm.com
 
+## Languages Used
+
+- React
+- JavaScript
+- PHP
+- MySQL
+
 > - Maintained by: `mr1hm`
 
 A full stack LAMP & React e-commerce web application.
@@ -21,17 +28,10 @@ A full stack LAMP & React e-commerce web application.
 - Go into this repository's directory on your computer using terminal (MacOS) or git bash (Windows)
 
 - Run "npm install"
-> $ npm install
+> `$ npm install`
 
 - Start a dev environment with access to Apache2 and MySQL
   - Check that port is directed to 3000
   - Check that root directory of server is set to the public folder
   - Run "npm run dev" to initiate the local server
-> $ npm run dev
-
-## Languages Used
-
-- React
-- JavaScript
-- PHP
-- MySQL
+> `$ npm run dev`
