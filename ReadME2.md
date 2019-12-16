@@ -24,5 +24,5 @@ A full stack LAMP & React e-commerce web application.
 > $ npm install
 
 - Start a dev environment with access to Apache2 and MySQL.
--- Check that port is directed to 3000.
+  - Check that port is directed to 3000.
 > $ 
