@@ -1,7 +1,7 @@
 TechNet
 ======
 
-Live: (wickedsales.kevinihm.com TECHNET)
+(wickedsales.kevinihm.com TECHNET)
 
 ## Languages Used
 
