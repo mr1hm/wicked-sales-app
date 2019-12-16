@@ -1,7 +1,7 @@
 TechNet
 ======
 
-(http://wickedsales.kevinihm.com "TechNet")
+[TechNet](http://wickedsales.kevinihm.com "TechNet")
 
 ## Languages Used
 
