@@ -35,3 +35,6 @@ A full stack LAMP & React e-commerce web application.
   - Check that root directory of server is set to the public folder
   - Run "npm run dev" to initiate the local server
 > `$ npm run dev`
+
+- Open your browser and enter localhost:3000 into the address bar
+- Enjoy!
