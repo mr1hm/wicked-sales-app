@@ -19,5 +19,10 @@ A full stack LAMP & React e-commerce web application.
 - Fork this repository to your github
 - Clone this repository from your github to your computer
 - Go into this repository's directory on your computer through terminal
+
 - Run "npm install"
 > $ npm install
+
+- Start a dev environment with access to Apache2 and MySQL.
+-- Check that port is directed to 3000.
+> $ 
