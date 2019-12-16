@@ -18,7 +18,7 @@ A full stack LAMP & React e-commerce web application.
 
 - Fork this repository to your github
 - Clone this repository from your github to your computer
-- Go into this repository's directory on your computer through terminal
+- Go into this repository's directory on your computer using terminal (MacOS) or git bash (Windows)
 
 - Run "npm install"
 > $ npm install
